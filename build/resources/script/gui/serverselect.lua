@@ -1,0 +1,11 @@
+GUI_prepare();
+local width = getWindowWidth();
+local height = getWindowHeight();
+local ip_string = GUI_textbox(1,(width/3),(height/2),500,50);
+local ip_port = GUI_textbox(2,(width/3),(height/2)+100,500,50);
+if (GUI_button(3,(width) - (width/4) ,(height/2),125,50,"Host Server")==1) then print('Host Server'); print(ip_string) end;
+if (GUI_button(4,(width) - (width/4) ,(height/2)+100,125,50,"Join Server")==1) then print('Join Server') print(ip_port) end;
+writeWord(width/3, height/3, "Server Select", "Black");
+writeWord(width *0.2, height /2, "Ip Address :", "button_text");
+writeWord(width *0.2, height /2 + 100, "Port Number :", "button_text");
+GUI_finish();

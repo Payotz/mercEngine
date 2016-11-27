@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" nextobjectid="46">
+ <tileset firstgid="1" name="art" tilewidth="32" tileheight="32" tilecount="70">
+  <image source="../../../../../../Desktop/2DRP_CCArt_RPGTown/art.png" width="320" height="240"/>
+ </tileset>
+ <tileset firstgid="71" name="art" tilewidth="32" tileheight="32" tilecount="70">
+  <image source="../../../../../../Desktop/2DRP_CCArt_RPGTown/art.png" width="320" height="240"/>
+ </tileset>
+ <layer name="ground" width="32" height="32">
+  <data encoding="csv">
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,11,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <layer name="main_feature" width="32" height="32">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,24,25,26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,25,26,0,0,0,0,0,0,
+0,0,0,0,0,34,35,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,34,35,36,0,0,0,0,0,0,
+0,0,0,0,0,44,45,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,44,45,46,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,24,25,26,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,34,35,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,44,45,46,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,24,25,26,0,31,32,33,0,4,13,13,0,0,31,32,33,0,24,25,26,0,0,0,0,0,0,
+0,0,0,0,0,0,34,35,36,0,41,42,43,0,4,13,13,0,0,41,42,43,0,34,35,36,0,0,0,0,0,0,
+0,0,0,0,0,0,44,45,46,0,51,52,53,0,4,13,13,0,0,51,52,53,0,44,45,46,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,31,32,33,0,4,13,13,0,0,31,32,33,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,41,42,43,0,4,13,13,0,0,41,42,43,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,51,52,53,0,4,13,13,0,0,51,52,53,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,31,32,33,0,4,13,13,0,0,31,32,33,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,41,42,43,0,4,13,13,0,0,41,42,43,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,51,52,53,0,4,13,13,0,0,51,52,53,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,13,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="side_feature" width="32" height="32">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,68,69,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,68,69,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,68,69,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,68,69,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,68,69,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="object">
+  <object id="1" x="994" y="0" width="26" height="1018">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="2" x="-8" y="-4" width="32" height="1024">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="3" x="2.66667" y="993.333" width="442.667" height="28">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="4" x="542.667" y="990.667" width="480" height="30.6667">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="5" x="0" y="26.6667" width="1021.33">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value=""/>
+   </properties>
+  </object>
+  <object id="6" x="446.667" y="992" width="98.6667" height="30.6667">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="warp"/>
+   </properties>
+  </object>
+  <object id="7" x="253" y="605" width="19">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value=""/>
+   </properties>
+  </object>
+  <object id="15" x="198.667" y="512" width="80.3333" height="50.5">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="17" x="251.5" y="563" width="27" height="44">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="18" x="201.5" y="562.5" width="26.5" height="45">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="20" x="226.5" y="562.5" width="24.5" height="45">
+   <properties>
+    <property name="target_name" value="Town"/>
+    <property name="target_x" value="0"/>
+    <property name="target_y" value="0"/>
+    <property name="type" value="warp"/>
+   </properties>
+  </object>
+  <object id="21" x="483.333" y="402.417" width="24.5" height="45">
+   <properties>
+    <property name="target_name" value="Town"/>
+    <property name="target_x" value="0"/>
+    <property name="target_y" value="0"/>
+    <property name="type" value="warp"/>
+   </properties>
+  </object>
+  <object id="22" x="455.5" y="351.917" width="80.3333" height="50.5">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="23" x="458.333" y="402.417" width="26.5" height="45">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="24" x="508.333" y="402.917" width="27" height="44">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="25" x="772.666" y="562.417" width="24.5" height="45">
+   <properties>
+    <property name="target_name" value="Sample"/>
+    <property name="target_x" value="0"/>
+    <property name="target_y" value="0"/>
+    <property name="type" value="warp"/>
+   </properties>
+  </object>
+  <object id="26" x="744.833" y="511.917" width="80.3333" height="50.5">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value=""/>
+   </properties>
+  </object>
+  <object id="27" x="747.666" y="562.417" width="26.5" height="45">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value=""/>
+   </properties>
+  </object>
+  <object id="28" x="797.666" y="562.917" width="27" height="44">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value=""/>
+   </properties>
+  </object>
+  <object id="29" x="769.666" y="145.417" width="24.5" height="45">
+   <properties>
+    <property name="target_name" value="Town"/>
+    <property name="target_x" value="0"/>
+    <property name="target_y" value="0"/>
+    <property name="type" value="warp"/>
+   </properties>
+  </object>
+  <object id="30" x="741.833" y="94.9167" width="80.3333" height="50.5">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="31" x="744.666" y="145.417" width="26.5" height="45">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="32" x="794.666" y="145.917" width="27" height="44">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="33" x="194.333" y="146.75" width="24.5" height="45">
+   <properties>
+    <property name="target_name" value="Town"/>
+    <property name="target_x" value="0"/>
+    <property name="target_y" value="0"/>
+    <property name="type" value="warp"/>
+   </properties>
+  </object>
+  <object id="34" x="166.5" y="96.25" width="80.3333" height="50.5">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="35" x="169.333" y="146.75" width="26.5" height="45">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="36" x="219.333" y="147.25" width="27" height="44">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="37" x="605.333" y="512" width="96" height="96">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="38" x="605.333" y="674" width="96" height="96">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="39" x="607.333" y="832" width="96" height="96">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="40" x="317.333" y="832.667" width="96" height="96">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="41" x="316" y="672.667" width="96" height="96">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="42" x="316.667" y="510.667" width="96" height="96">
+   <properties>
+    <property name="target_name" value=""/>
+    <property name="target_x" value=""/>
+    <property name="target_y" value=""/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </object>
+  <object id="44" x="573.333" y="578.667"/>
+ </objectgroup>
+</map>
