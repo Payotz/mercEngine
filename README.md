@@ -1,7 +1,5 @@
-# README #
-
 A WIP 2D engine made in Dlang using SDL.
-Not stable, not usable.
+Unstable
 Advise not using it.
 Assets are placeholder
 
