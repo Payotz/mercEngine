@@ -1,6 +1,9 @@
 A WIP 2D engine made in Dlang using SDL.
+
 Unstable
-Advise not using it.
+
+I'll highly advise not using it.
+
 Assets are placeholder
 
 ### How do I get set up? ###
