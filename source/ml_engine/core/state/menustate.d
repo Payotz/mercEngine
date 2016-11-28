@@ -9,6 +9,7 @@ import ml_engine.core.manager.guimanager;
 import ml_engine.manager.gameobjectmanager;
 import ml_engine.manager.playermanager;
 import ml_engine.core.manager.scriptmanager;
+import ml_engine.game;
 
 import std.stdio;
 import std.conv;
@@ -76,6 +77,14 @@ class MenuState : IState{
                         state.text[to!string(state.kbditem)].length -= 1;
                     }
                     break;
+                case SDL_WINDOWEVENT:
+                    if(event.window.event == SDL_WINDOWEVENT_MINIMIZED)
+                        wasMinimized = true;
+                    if(event.window.event == SDL_WINDOWEVENT_RESTORED){
+                        SDL_SetWindowSize(Game.getInstance().getMainWindow(),Game.getInstance().getWidth(),Game.getInstance().getHeight());
+                        wasMinimized = false;
+                    }
+                    break;
                 default:break;
             }
         }
@@ -86,4 +95,5 @@ class MenuState : IState{
     }
 
     private string[string] script;
+    private bool wasMinimized;
 }

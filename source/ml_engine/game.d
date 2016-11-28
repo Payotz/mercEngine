@@ -73,6 +73,10 @@ class Game{
         StateManager.getInstance().handleEvents(running);
     }
 
+    SDL_Window* getMainWindow(){
+        return window;
+    }
+
     void render(){
         SDL_SetRenderDrawColor(renderTarget,255,255,255,255);
         SDL_RenderClear(renderTarget);

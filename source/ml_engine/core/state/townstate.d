@@ -12,6 +12,7 @@ import ml_engine.manager.playermanager;
 import ml_engine.manager.roommanager;
 import ml_engine.room.roomfunc;
 import ml_engine.core.camera;
+import ml_engine.game;
 import derelict.sdl2.sdl;
 import std.conv;
 
@@ -138,6 +139,14 @@ class TownState : IState{
             if(event.type == SDL_KEYUP){
                 PlayerManager.getInstance().stopMove("Player_1");
             }
+            if (event.type == SDL_WINDOWEVENT){
+                if(event.window.event == SDL_WINDOWEVENT_MINIMIZED)
+                    wasMinimized = true;
+                if(event.window.event == SDL_WINDOWEVENT_RESTORED){
+                    SDL_SetWindowSize(Game.getInstance().getMainWindow(),Game.getInstance().getWidth(),Game.getInstance().getHeight());
+                    wasMinimized = false;
+                }
+            }
         }
     }
 
@@ -161,4 +170,5 @@ class TownState : IState{
 
     private Camera camera;
     private string[string] script;
+    private bool wasMinimized;
 } 
