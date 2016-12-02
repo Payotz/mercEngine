@@ -12,6 +12,7 @@ import ml_engine.core.manager.audiomanager;
 import ml_engine.core.manager.statemanager;
 import ml_engine.core.manager.guimanager;
 import ml_engine.core.manager.scriptmanager;
+import ml_engine.core.manager.eventhandler;
 import ml_engine.manager.playermanager;
 import ml_engine.manager.gameobjectmanager;
 import ml_engine.core.camera;
@@ -62,6 +63,7 @@ class Game{
         StateManager.getInstance().init();
         GUIManager.getInstance().init(screen_width,screen_height);
         ScriptManager.getInstance().init(renderTarget);
+        EventHandler.getInstance().init();
 
     }
 

@@ -121,6 +121,9 @@ class ScriptManager{
         ///Script Bindings
         lua_register(L,cast(char*)"Script_addScript",&addScriptToList);
 
+        ///Event Bindings
+        
+
         renderTarget = value;
         initGuiScript(renderTarget);
         textureInit(renderTarget);

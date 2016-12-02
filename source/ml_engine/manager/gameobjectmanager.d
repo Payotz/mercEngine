@@ -5,6 +5,7 @@ import ml_engine.object.player;
 import ml_engine.manager.playermanager;
 import ml_engine.core.camera;
 import ml_engine.core.manager.texturemanager;
+import ml_engine.core.manager.guimanager;
 
 import derelict.sdl2.sdl;
 
@@ -33,6 +34,10 @@ class GameObjectManager{
 
     void setDetails(string name, string detail_name, string value){
         gameobject_list[name].setDetails(detail_name,value);
+    }
+
+    string getDialogue(string name){
+        return gameobject_list[name].getDialogue();
     }
 
     void move(string name, SDL_Point value){

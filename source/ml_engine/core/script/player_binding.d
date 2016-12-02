@@ -53,10 +53,9 @@ extern(C) nothrow int setPlayerPosition(lua_State*L){
 
 extern(C) nothrow int movePlayer(lua_State *L){
     try{
-        string name = to!string(lua_tostring(L,1));
-        int x = to!int(lua_tointeger(L,2));
-        int y = to!int(lua_tointeger(L,3));
-        PlayerManager.getInstance().move(name,x,y);
+        int x = to!int(lua_tointeger(L,1));
+        int y = to!int(lua_tointeger(L,2));
+        PlayerManager.getInstance().move(x,y);
     }catch(Exception e){
     }
     return 0;

@@ -33,7 +33,10 @@ class GameObject{
     void setPosition(SDL_Point value) {
         position = value;
     }
-    
+
+    string getDialogue(){
+        return detail_list["dialogue"];
+    }
     string getSpriteName(){
         return sprite_name;
     }
