@@ -3,6 +3,8 @@ import ml_engine.manager.playermanager;
 import ml_engine.manager.gameobjectmanager;
 import ml_engine.manager.roommanager;
 import ml_engine.core.manager.statemanager;
+import ml_engine.core.manager.texturemanager;
+import std.stdio;
 import ml_engine.game;
 
 import std.conv;
@@ -94,10 +96,22 @@ void movePlayerRight(){
         PlayerManager.getInstance().changeSpriteLayer("Player_1",3);
 }
 
+void stopAnimation(string name){
+    PlayerManager.getInstance().stopMove(name);
+}
+
 void quitGame(){
     Game.getInstance().quit();
 }
 
 void reset(){
     StateManager.getInstance().reset();
+}
+
+void talk(){
+    auto player_pos = PlayerManager.getInstance().getPosition("Player_1");
+    auto a = RoomManager.getInstance().pointInWarpObject(player_pos.x,player_pos.y-movement_static);
+    if(GameObjectManager.getInstance().checkCollision("Player_1")){
+        writeln("Talking to NPC");
+    }
 }

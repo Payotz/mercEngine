@@ -1,6 +1,7 @@
 module ml_engine.core.manager.eventhandler;
 
 import ml_engine.core.event.eventfunc;
+import ml_engine.game;
 import derelict.sdl2.sdl;
 import std.variant;
 import std.stdio;
@@ -24,16 +25,31 @@ class EventHandler{
         registerCallback("MoveDown",SDL_SCANCODE_DOWN,&movePlayerDown);
         registerCallback("MoveRight",SDL_SCANCODE_RIGHT,&movePlayerRight);
         registerCallback("MoveLeft",SDL_SCANCODE_LEFT,&movePlayerLeft);
+        registerCallback("Talk",SDL_SCANCODE_Z,&talk);
         registerCallback("Quit",SDL_SCANCODE_ESCAPE,&quitGame);
         registerCallback("Reset",SDL_SCANCODE_SPACE,&reset);
     }
 
     void initEventHandling(){
-        SDL_PumpEvents();
+        SDL_Event event;
+        SDL_PollEvent(&event);
         auto keystate = SDL_GetKeyboardState(null);
         foreach(action; command){
             if(keystate[action])
                 fireEvent(action);
+        }
+
+        switch(event.type){
+            case SDL_QUIT:
+                Game.getInstance().quit();
+                break;
+
+            case SDL_KEYUP:
+                stopAnimation("Player_1");
+                break;
+
+            default:
+                break;
         }
     }
 
