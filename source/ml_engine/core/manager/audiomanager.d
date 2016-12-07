@@ -19,7 +19,7 @@ class AudioManager{
     }
 
 	void loadSound(string path, string name){
-		sound_list[name] = new Sound(path);
+		sound_list[name] = new Sound(directory ~ path);
 	}
 
 	void playSound(string name){
@@ -27,7 +27,7 @@ class AudioManager{
 	}
 
 	void loadMusic(string path, string name){
-		music_list[name] = new Music(path);
+		music_list[name] = new Music(directory ~ path);
 	}
 
 	void stopMusic(string name){
@@ -54,11 +54,17 @@ class AudioManager{
 			music_list[name].playMusic();
 		}
 	}
+
+	void setDirectory(string value){
+		directory = value;
+	}
+
     private:
     Music[string] music_list;
 	Sound[string] sound_list;
     __gshared AudioManager instance_;
     static bool instantiated_;
+	string directory;
 	
 	this(){
 	}

@@ -20,6 +20,15 @@ extern(C) nothrow int addSprite(lua_State *L){
     return 0;
 }
 
+extern(C) nothrow int Texture_setDirectory(lua_State *L){
+    try{
+        string value = to!string(lua_tostring(L,1));
+        TextureManager.getInstance().setDirectory(value);
+    }catch(Exception e){
+    }
+    return 0;
+}
+
 extern(C) nothrow int addSpriteSheet(lua_State *L){
     try{
         string path = to!string(lua_tostring(L,1));

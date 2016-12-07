@@ -55,6 +55,7 @@ class ScriptManager{
         lua_register(L,cast(char*)"Audio_loadMusic",&loadMusic);
         lua_register(L,cast(char*)"Audio_stopMusic",&stopMusic);
         lua_register(L,cast(char*)"Audio_playMusic",&playMusic);
+        lua_register(L,cast(char*)"Audio_setDirectory",&Audio_setDirectory);
 
         ///Camera Bindings
 
@@ -109,6 +110,7 @@ class ScriptManager{
         lua_register(L,cast(char*)"Texture_addSprite",&addSprite);
         lua_register(L,cast(char*)"Texture_addSpriteSheet",&addSpriteSheet);
         lua_register(L,cast(char*)"Texture_addFont",&addFont);
+        lua_register(L,cast(char*)"Texture_setDirectory",&Texture_setDirectory);
         lua_register(L,cast(char*)"Texture_setSpriteAlpha",&setSpriteAlpha);
 
         ///Map Bindings
@@ -117,9 +119,12 @@ class ScriptManager{
         lua_register(L,cast(char*)"Map_getMapHeight",&getMapHeight);
         lua_register(L,cast(char*)"Map_getMapWidth",&getMapWidth);
         lua_register(L,cast(char*)"Map_drawMap",&drawMap);
+        lua_register(L,cast(char*)"Map_setDirectory",&Map_setDirectory);
 
         ///Script Bindings
         lua_register(L,cast(char*)"Script_addScript",&addScriptToList);
+        lua_register(L,cast(char*)"Script_setDirectory",&Script_setDirectory);
+        lua_register(L,cast(char*)"Script_loadScript",&Script_loadScript);
 
         ///Event Bindings
         
@@ -127,12 +132,13 @@ class ScriptManager{
         renderTarget = value;
         initGuiScript(renderTarget);
         textureInit(renderTarget);
-        addScript("main","resources/script/main.lua");
-        loadScript("main");
+        addScript("__SCRIPTFILESTART__","resources/start.lua");
+        loadScript("__SCRIPTFILESTART__");
     }
 
     void addScript(string name,string path){
-        script_list[name] = path;
+        writeln("Adding Script to Path : ", "\"", directory ~ path,"\"" );
+        script_list[name] = directory ~ path;
     }
 
     void loadScript(string name){
@@ -156,12 +162,17 @@ class ScriptManager{
         lua_close(L);
     }
 
+    void setDirectory(string value){
+        directory = value;
+    }
+
     private:
         lua_State* L;
         string[string] script_list;
         
         __gshared ScriptManager instance_;
         static bool instantiated_;
+        string directory;
 }
 
 
@@ -176,7 +187,23 @@ extern(C) nothrow int addScriptToList(lua_State *L){
     return 0;
 }
 
+extern(C) nothrow int Script_loadScript(lua_State *L){
+    try{
+        string name = to!string(lua_tostring(L,1));
+        ScriptManager.getInstance().loadScript(name);
+    }catch(Exception e){
+    }
+    return 0;
+}
 
+extern(C) nothrow int Script_setDirectory(lua_State *L){
+    try{
+        string value = to!string(lua_tostring(L,1));
+        ScriptManager.getInstance().setDirectory(value);
+    }catch(Exception e){
+    }
+    return 0;
+}
 
 extern(C) nothrow int Delay(lua_State *L){
     try{

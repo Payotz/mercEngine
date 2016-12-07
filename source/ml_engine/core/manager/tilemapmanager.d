@@ -88,7 +88,7 @@ class TileMapManager{
 
     void loadMap(string map_Name, string dataPath) {
         writeln("Loading Map :");
-        auto data = MapData.load(dataPath);
+        auto data = MapData.load(directory ~ dataPath);
         write(map_Name);
         // the layers determine which tiles go where
         auto groundLayer = data.getLayer("ground");
@@ -106,7 +106,7 @@ class TileMapManager{
             .array)
         .array;                          // create an array of all the rows
         
-        map_list[map_Name] = TileMap(OrthoMap!Tile(tiles, data.tileWidth, data.tileHeight), MapData.load(dataPath));
+        map_list[map_Name] = TileMap(OrthoMap!Tile(tiles, data.tileWidth, data.tileHeight), MapData.load(directory ~ dataPath));
         writeln(map_Name);
     }
 
@@ -162,9 +162,14 @@ class TileMapManager{
         SDL_RenderCopy(renderTarget,tileAtlas,&rect,&dummy);
     }
 
+    void setDirectory(string value){
+        directory = value;
+    }
+
     private:
         __gshared TileMapManager instance_;
         static bool instantiated_;
         ObjectData[] warpObjects;
         TileMap[string] map_list;
+        string directory;
 }

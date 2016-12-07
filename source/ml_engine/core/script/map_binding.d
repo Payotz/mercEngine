@@ -21,6 +21,15 @@ extern(C) nothrow int loadMap(lua_State *L){
     return 0;
 }
 
+extern(C) nothrow int Map_setDirectory(lua_State *L){
+    try{
+        string value = to!string(lua_tostring(L,1));
+        TileMapManager.getInstance().setDirectory(value);
+    }catch(Exception e){
+    }
+    return 0;
+}
+
 extern(C) nothrow int getMapHeight(lua_State *L){
     try{
         string mapName = to!string(lua_tostring(L,1));

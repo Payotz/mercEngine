@@ -3,6 +3,7 @@ module ml_engine.core.script.audio_binding;
 import ml_engine.core.manager.audiomanager;
 import derelict.lua.lua;
 import std.conv;
+import std.stdio;
 
 extern(C) nothrow int loadSound(lua_State *L){
     try{
@@ -19,6 +20,17 @@ extern(C) nothrow int playSound(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
         AudioManager.getInstance().playSound(name);
+    }catch(Exception e){
+    }
+    return 0;
+}
+
+extern(C) nothrow int Audio_setDirectory(lua_State *L){
+    try{
+        string value = to!string(lua_tostring(L,1));
+        writeln("Audio loading complete!");
+        writeln(value);
+        AudioManager.getInstance().setDirectory(value);
     }catch(Exception e){
     }
     return 0;

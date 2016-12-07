@@ -27,15 +27,15 @@ class TextureManager{
     }
 
     void addSprite(string path,string name,SDL_Renderer* renderTarget){
-        sprite_list[name] = new Sprite(path,renderTarget);
+        sprite_list[name] = new Sprite(directory ~ path,renderTarget);
     }
 
     void addSpriteSheet(string path, string name, SDL_Renderer* renderTarget){
-        spriteSheet_list[name] = new SpriteSheet(path,60,renderTarget);
+        spriteSheet_list[name] = new SpriteSheet(directory ~ path,60,renderTarget);
     }
     
     void addFont(string path,string name, int size) {
-		font_list[name] = new Font(path,size);
+		font_list[name] = new Font(directory ~ path,size);
 	}
 
     int checkSpriteInList(string name){
@@ -77,6 +77,10 @@ class TextureManager{
         if((name in spriteSheet_list) !is null)
 		spriteSheet_list[name].setAnimated(isAnimated);
 	}
+
+    void setDirectory(string value){
+        directory = value;
+    }
     
     private:
     this(){
@@ -84,6 +88,7 @@ class TextureManager{
     Font[string] font_list;
 	Sprite[string] sprite_list;
 	SpriteSheet[string] spriteSheet_list;
+    string directory;
 
     __gshared TextureManager instance_;
     static bool instantiated_;
