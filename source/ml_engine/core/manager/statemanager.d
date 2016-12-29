@@ -36,6 +36,10 @@ class StateManager{
         state_list[name] = state;
     }
 
+    void setEventHandler(string name,string value){
+        state_list[name].setEventHandler(value);
+    }
+
     void changeState(string name){
         if(!currentState){
             currentState = state_list[name];

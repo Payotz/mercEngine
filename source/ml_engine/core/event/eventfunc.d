@@ -14,8 +14,9 @@ int movement_static = 1;
 void movePlayerUp(){
     auto player_pos = PlayerManager.getInstance().getPosition("Player_1");
     auto a = RoomManager.getInstance().pointInWarpObject(player_pos.x,player_pos.y-movement_static);
-    if(GameObjectManager.getInstance().checkCollision("Player_1")){
-        PlayerManager.getInstance().move(0,0);
+    auto collide = GameObjectManager.getInstance().checkCollision("Player_1");
+        if(collide[0]){
+            PlayerManager.getInstance().move(0,0);
         }else if(a[0]){
             auto obj_args = a[1];
             if(obj_args["type"] == "obstacle"){
@@ -35,9 +36,10 @@ void movePlayerUp(){
 void movePlayerDown(){
     auto player_pos = PlayerManager.getInstance().getPosition("Player_1");
     auto a = RoomManager.getInstance().pointInWarpObject(player_pos.x,player_pos.y+movement_static);
-    if(GameObjectManager.getInstance().checkCollision("Player_1")){
-        PlayerManager.getInstance().move(0,0);
-    }
+    auto collide = GameObjectManager.getInstance().checkCollision("Player_1");
+        if(collide[0]){
+            PlayerManager.getInstance().move(0,0);
+        }
     if(a[0]){
         auto obj_args = a[1];
         if(obj_args["type"] == "obstacle"){
@@ -56,7 +58,8 @@ void movePlayerDown(){
 void movePlayerLeft(){
     auto player_pos = PlayerManager.getInstance().getPosition("Player_1");
     auto a = RoomManager.getInstance().pointInWarpObject(player_pos.x-movement_static,player_pos.y);
-        if(GameObjectManager.getInstance().checkCollision("Player_1")){
+    auto collide = GameObjectManager.getInstance().checkCollision("Player_1");
+        if(collide[0]){
             PlayerManager.getInstance().move(0,0);
         }
         else if(a[0]){
@@ -77,7 +80,8 @@ void movePlayerLeft(){
 void movePlayerRight(){
     auto player_pos = PlayerManager.getInstance().getPosition("Player_1");
     auto a = RoomManager.getInstance().pointInWarpObject(player_pos.x+movement_static,player_pos.y);
-        if(GameObjectManager.getInstance().checkCollision("Player_1")){
+    auto collide = GameObjectManager.getInstance().checkCollision("Player_1");
+        if(collide[0]){
             PlayerManager.getInstance().move(0,0);
         }
         else if(a[0]){
@@ -111,7 +115,10 @@ void reset(){
 void talk(){
     auto player_pos = PlayerManager.getInstance().getPosition("Player_1");
     auto a = RoomManager.getInstance().pointInWarpObject(player_pos.x,player_pos.y-movement_static);
-    if(GameObjectManager.getInstance().checkCollision("Player_1")){
-        writeln("Talking to NPC");
+    auto collide = GameObjectManager.getInstance().checkCollision("Player_1");
+    if(collide[0]){
+        auto object_pos = GameObjectManager.getInstance().getPosition(collide[1]);
+        TextureManager.getInstance().renderFont("Black","Hello World!",object_pos.x,object_pos.y-20);
+        writeln("Talking");
     }
 }

@@ -3,7 +3,7 @@ module ml_engine.core.state.townstate;
 import ml_engine.core.state.IState;
 import ml_engine.core.manager.texturemanager;
 import ml_engine.core.manager.audiomanager;
-import ml_engine.core.manager.eventhandler;
+import ml_engine.core.manager.eventmanager;
 import ml_engine.core.manager.guimanager;
 import ml_engine.core.manager.tilemapmanager;
 import ml_engine.core.manager.statemanager;
@@ -16,12 +16,14 @@ import ml_engine.core.camera;
 import ml_engine.game;
 import derelict.sdl2.sdl;
 import std.conv;
-
+import std.stdio;
 class TownState : IState{
 
     this(string update_file,string render_file){
         script["update"] = update_file;
         script["render"] = render_file;
+        EventManager.getInstance().init();
+        setEventHandler("Sample");
     }
 
 	void onEnter(){
@@ -38,12 +40,16 @@ class TownState : IState{
     }
 
 	void update(){
-        Camera.getInstance().update();
+        Camera.getInstance().update();  
         GameObjectManager.getInstance().checkCollision("Player_1");
     }
 
-	void handleEvents(ref bool gameLoop){        
-        EventHandler.getInstance().initEventHandling();
+	void handleEvents(ref bool gameLoop){     
+        EventManager.getInstance().handleEvent(eventhandler);
+    }
+
+    void setEventHandler(string name){
+        eventhandler = name;
     }
 
     void setScriptFile(string name,string text){
@@ -66,5 +72,6 @@ class TownState : IState{
 
     private Camera camera;
     private string[string] script;
+    private string eventhandler;
     private bool wasMinimized;
 } 

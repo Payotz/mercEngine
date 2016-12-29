@@ -26,6 +26,10 @@ class TextureManager{
         return instance_;
     }
 
+    void init(SDL_Renderer* value){
+        renderTarget = value;
+    }
+
     void addSprite(string path,string name,SDL_Renderer* renderTarget){
         sprite_list[name] = new Sprite(directory ~ path,renderTarget);
     }
@@ -61,8 +65,8 @@ class TextureManager{
 		spriteSheet_list[name].render(posX,posY,renderTarget);
 	}
 
-	void renderFont(string name,string message,int posX, int posY,SDL_Renderer* renderTarget){
-		font_list[name].render(message,posX,posY,renderTarget);
+	void renderFont(string name,string message,int posX, int posY,SDL_Renderer* value = null){
+		font_list[name].render(message,posX,posY,this.renderTarget);
 	}
 
     void changeSpriteLayer(string name, int layerNumber){
@@ -89,6 +93,7 @@ class TextureManager{
 	Sprite[string] sprite_list;
 	SpriteSheet[string] spriteSheet_list;
     string directory;
+    SDL_Renderer* renderTarget;
 
     __gshared TextureManager instance_;
     static bool instantiated_;

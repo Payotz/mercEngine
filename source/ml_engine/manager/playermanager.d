@@ -26,7 +26,7 @@ class PlayerManager{
     }
 
     void addPlayer(string name){
-        player_list[name] = new Player();
+        player_list[name] = new Player(name);
         current_player = name;
     }
 

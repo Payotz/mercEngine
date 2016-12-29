@@ -9,6 +9,10 @@ import std.conv;
 class GameObject{
     public:
 
+    this(string value){
+        object_name = value;
+    }
+
     SDL_Point getPosition() {
         return position; 
     }
@@ -39,6 +43,9 @@ class GameObject{
     }
     string getSpriteName(){
         return sprite_name;
+    }
+    string getObjectName(){
+        return object_name;
     }
 
     void setSprite(string value){
@@ -76,6 +83,7 @@ class GameObject{
     string[string] detail_list;
     SDL_Point position;
     string sprite_name;
+    string object_name;
     SDL_Rect spriteRect;
     bool isSpriteSheet = false;
     bool spriteExists = false;

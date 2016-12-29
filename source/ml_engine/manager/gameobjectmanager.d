@@ -6,6 +6,7 @@ import ml_engine.manager.playermanager;
 import ml_engine.core.camera;
 import ml_engine.core.manager.texturemanager;
 import ml_engine.core.manager.guimanager;
+import std.typecons;
 
 import derelict.sdl2.sdl;
 
@@ -25,7 +26,7 @@ class GameObjectManager{
     }
 
     void addGameObject(string name){
-        gameobject_list[name] = new GameObject();
+        gameobject_list[name] = new GameObject(name);
     }
 
     void setSprite(string name, string value){
@@ -47,7 +48,7 @@ class GameObjectManager{
         gameobject_list[name].setPosition(dummy);
     }
 
-    bool checkCollision(string name){
+    Tuple!(bool,string) checkCollision(string name){
         auto player_pos = PlayerManager.getInstance().getPosition(name);
         foreach(gameobject; gameobject_list){
             auto dummy = gameobject.getRect();
@@ -55,10 +56,10 @@ class GameObjectManager{
             dummy.y -=16;
             dummy.h +=10;
             if(SDL_PointInRect(&player_pos,dummy)){
-                return true;
+                return tuple(true,gameobject.getObjectName());
             }
         }
-        return false;
+        return tuple(false,"Nothing");
     }
 
 
@@ -74,6 +75,10 @@ class GameObjectManager{
         foreach(gameobject; gameobject_list){
             gameobject = null;
         }
+    }
+
+    SDL_Point getPosition(string name){
+        return gameobject_list[name].getPosition();
     }
 
     void render(SDL_Renderer *renderTarget){

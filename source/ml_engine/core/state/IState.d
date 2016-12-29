@@ -10,6 +10,8 @@ interface IState{
 
 	void render(SDL_Renderer *renderTarget);
 
+	void setEventHandler(string value);
+
 	string getScriptFile(string name);
 
 	void setScriptFile(string name,string text);

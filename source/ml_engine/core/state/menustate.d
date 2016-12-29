@@ -41,6 +41,10 @@ class MenuState : IState{
         script[name] = text;
     }
 
+    void setEventHandler(string name){
+        eventhandler = name;
+    }
+
     string getScriptFile(string name){
         return script[name];
     }
@@ -95,5 +99,6 @@ class MenuState : IState{
     }
 
     private string[string] script;
+    private string eventhandler;
     private bool wasMinimized;
 }

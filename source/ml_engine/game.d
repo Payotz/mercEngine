@@ -12,7 +12,7 @@ import ml_engine.core.manager.audiomanager;
 import ml_engine.core.manager.statemanager;
 import ml_engine.core.manager.guimanager;
 import ml_engine.core.manager.scriptmanager;
-import ml_engine.core.manager.eventhandler;
+import ml_engine.core.manager.eventmanager;
 import ml_engine.manager.playermanager;
 import ml_engine.manager.gameobjectmanager;
 import ml_engine.core.camera;
@@ -60,10 +60,10 @@ class Game{
         
         window = SDL_CreateWindow("Hello World",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,screen_width,screen_height,SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL) ;
         renderTarget = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+        TextureManager.getInstance().init(renderTarget);
         StateManager.getInstance().init();
         GUIManager.getInstance().init(screen_width,screen_height);
         ScriptManager.getInstance().init(renderTarget);
-        EventHandler.getInstance().init();
 
     }
 
