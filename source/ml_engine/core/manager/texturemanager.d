@@ -1,7 +1,6 @@
 module ml_engine.core.manager.texturemanager;
 
 import derelict.sdl2.sdl;
-import derelict.sdl2.gfx.gfx;
 import ml_engine.core.graphic.font;
 import ml_engine.core.graphic.sprite;
 import ml_engine.core.graphic.spritesheet;

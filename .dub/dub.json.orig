@@ -1,0 +1,15 @@
+{
+	"dub": {
+		"lastUpgrade": "2016-12-28T18:36:57.9025556",
+		"cachedUpgrades": {
+			"derelict-util": "2.0.6",
+			"derelict-sdl2_gfx": "1.0.0",
+			"derelict-gl3": "1.0.20",
+			"derelict-sdl2": "2.0.2",
+			"dini": "2.0.0",
+			"jsonizer": "0.5.2",
+			"derelict-lua": "1.3.0",
+			"dtiled": "0.3.3"
+		}
+	}
+}

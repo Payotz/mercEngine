@@ -1,7 +1,6 @@
 module ml_engine.game;
 import derelict.sdl2.sdl;
 import derelict.sdl2.image;
-import derelict.sdl2.gfx.gfx;
 import derelict.sdl2.mixer;
 import derelict.sdl2.ttf;
 import derelict.sdl2.net;
@@ -45,7 +44,6 @@ class Game{
         DerelictSDL2ttf.load();
         DerelictSDL2Net.load();
         DerelictLua.load();
-        DerelictSDL2Gfx.load();
 
         if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
 			writeln(SDL_GetError());
