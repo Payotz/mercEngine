@@ -12,8 +12,8 @@
 		"dini": "~>2.0.0"
 	},
 	"description": "2D Game Engine",
-	"copyright": "Copyright © 2016, Jack",
-	"license": "LGPL",
+	"copyright": "Copyright © 2016, Payotz",
+	"license": "MIT",
 	"targetName" : "Merchant Life",
 	"targetPath" : "/build/bin/",
 	"workingDirectory" : "build/"
