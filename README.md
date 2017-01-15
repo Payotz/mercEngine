@@ -22,7 +22,7 @@ lua 5.3
 
 Put the Runtime Binaries inside /build/ and just run dub at the root of the directory.
 
-Actualy Game Project files are in /build/resources. 
+Actual Game Project files are in /build/resources. 
 
 start.lua is modified to load the 'main.lua' files inside a respective Game Folder, hence loading Game.
 
