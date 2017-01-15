@@ -34,3 +34,5 @@ Assets are placeholder and are not mine.
 As of now, the scripting language is incomplete.
 
 You can check the bindings in /source/ml_engine/core/script
+
+This project is still highly unstable
