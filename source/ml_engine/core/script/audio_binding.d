@@ -25,17 +25,6 @@ extern(C) nothrow int playSound(lua_State *L){
     return 0;
 }
 
-extern(C) nothrow int Audio_setDirectory(lua_State *L){
-    try{
-        string value = to!string(lua_tostring(L,1));
-        writeln("Audio loading complete!");
-        writeln(value);
-        AudioManager.getInstance().setDirectory(value);
-    }catch(Exception e){
-    }
-    return 0;
-}
-
 extern(C) nothrow int loadMusic(lua_State *L){
     try{
         string path = to!string(lua_tostring(L,1));
@@ -57,12 +46,39 @@ extern(C) nothrow int stopMusic(lua_State *L){
     return 0;
 }
 
+extern(C) nothrow int cleanMusic(lua_State *L){
+    try{
+        AudioManager.getInstance().cleanMusic();
+    }catch(Exception e){
+    }
+    return 0;
+}
+
+extern(C) nothrow int cleanSound(lua_State *L){
+    try{
+        AudioManager.getInstance().cleanSound();
+    }catch(Exception e){
+    }
+    return 0;
+}
+
 extern(C) nothrow int playMusic(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
         AudioManager.getInstance().playMusic(name);
     }catch(Exception e){
 
+    }
+    return 0;
+}
+
+extern(C) nothrow int Audio_setDirectory(lua_State *L){
+    try{
+        string value = to!string(lua_tostring(L,1));
+        writeln("Audio loading complete!");
+        writeln(value);
+        AudioManager.getInstance().setDirectory(value);
+    }catch(Exception e){
     }
     return 0;
 }

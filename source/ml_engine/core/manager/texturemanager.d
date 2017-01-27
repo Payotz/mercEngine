@@ -29,12 +29,12 @@ class TextureManager{
         renderTarget = value;
     }
 
-    void addSprite(string path,string name,SDL_Renderer* renderTarget){
-        sprite_list[name] = new Sprite(directory ~ path,renderTarget);
+    void addSprite(string path,string name){
+        sprite_list[name] = new Sprite(directory ~ path,this.renderTarget);
     }
 
-    void addSpriteSheet(string path, string name, SDL_Renderer* renderTarget){
-        spriteSheet_list[name] = new SpriteSheet(directory ~ path,60,renderTarget);
+    void addSpriteSheet(string path, string name){
+        spriteSheet_list[name] = new SpriteSheet(directory ~ path,60,this.renderTarget);
     }
     
     void addFont(string path,string name, int size) {
@@ -55,16 +55,16 @@ class TextureManager{
         return sprite_list[name].getSprite();
     }
 
-   	void renderSprite(string name,int posX,int posY, SDL_Renderer* renderTarget){
-		sprite_list[name].render(posX,posY,renderTarget);
+    void renderSprite(string name,int posX,int posY){
+		sprite_list[name].render(posX,posY,this.renderTarget);
 	}
 
-	void renderSpriteSheet(string name,int posX, int posY, SDL_Renderer* renderTarget){
+	void renderSpriteSheet(string name,int posX, int posY){
         if((name in spriteSheet_list) !is null)
-		spriteSheet_list[name].render(posX,posY,renderTarget);
+		spriteSheet_list[name].render(posX,posY,this.renderTarget);
 	}
 
-	void renderFont(string name,string message,int posX, int posY,SDL_Renderer* value = null){
+	void renderFont(string name,string message,int posX, int posY){
 		font_list[name].render(message,posX,posY,this.renderTarget);
 	}
 

@@ -110,8 +110,15 @@ class ScriptManager{
         lua_register(L,cast(char*)"Texture_addSprite",&addSprite);
         lua_register(L,cast(char*)"Texture_addSpriteSheet",&addSpriteSheet);
         lua_register(L,cast(char*)"Texture_addFont",&addFont);
+        lua_register(L,cast(char*)"Texture_checkSpriteInList",&checkSpriteInList);
+        lua_register(L,cast(char*)"Texture_getSprite",&getSprite);
+        lua_register(L,cast(char*)"Texture_renderSprite",&renderSprite);
+        lua_register(L,cast(char*)"Texture_renderSpriteSheet",&renderSpriteSheet);
+        lua_register(L,cast(char*)"Texture_renderFont",&renderFont);
+        lua_register(L,cast(char*)"Texture_changeSpriteLayer",&changeSpriteLayer);
+        lua_register(L,cast(char*)"Texture_setSpriteAlpha",&Texture_setSpriteAlpha);
+        lua_register(L,cast(char*)"Texture_setAnimated",&setAnimated);
         lua_register(L,cast(char*)"Texture_setDirectory",&Texture_setDirectory);
-        lua_register(L,cast(char*)"Texture_setSpriteAlpha",&setSpriteAlpha);
 
         ///Map Bindings
 
@@ -131,7 +138,6 @@ class ScriptManager{
 
         renderTarget = value;
         initGuiScript(renderTarget);
-        textureInit(renderTarget);
         addScript("__SCRIPTFILESTART__","resources/start.lua");
         loadScript("__SCRIPTFILESTART__");
     }

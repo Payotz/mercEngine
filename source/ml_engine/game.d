@@ -60,7 +60,7 @@ class Game{
         renderTarget = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
         TextureManager.getInstance().init(renderTarget);
         StateManager.getInstance().init();
-        GUIManager.getInstance().init(screen_width,screen_height);
+        GUIManager.getInstance().init(screen_width,screen_height,renderTarget);
         ScriptManager.getInstance().init(renderTarget);
 
     }

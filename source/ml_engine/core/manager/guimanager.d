@@ -12,10 +12,7 @@ import core.stdc.string;
 
 import ml_engine.game;
 
-///TODO: Arrange Structs,and Group widgets. Make it clean
-///TODO: Implement new Widgets
-///TODO: Implement Relative positioning
-///TODO: Implement Color Switching for Fonts
+
 class GUIManager{
     nothrow static GUIManager getInstance(){
         try{
@@ -32,22 +29,23 @@ class GUIManager{
         return instance_;
     }
 
-    void init(int w, int h){
+    void init(int w, int h, SDL_Renderer* renderTarget){
         screen_width = w;
         screen_height = h;
+        this.renderTarget = renderTarget;
     }
 
-    void drawRect(int x, int y, int w, int h,ubyte r,ubyte g, ubyte b, ubyte a,SDL_Renderer* renderTarget,SDL_BlendMode blendMode = SDL_BLENDMODE_NONE,bool fill = true, ubyte alpha = 255){
+    void drawRect(int x, int y, int w, int h,ubyte r,ubyte g, ubyte b, ubyte a,SDL_BlendMode blendMode = SDL_BLENDMODE_NONE,bool fill = true, ubyte alpha = 255){
         SDL_Rect rect;
         rect.x = x;
         rect.y = y;
         rect.w = w;
         rect.h = h;
-        SDL_SetRenderDrawBlendMode(renderTarget,blendMode);
-        SDL_SetRenderDrawColor(renderTarget,r,g,b,a);
+        SDL_SetRenderDrawBlendMode(this.renderTarget,blendMode);
+        SDL_SetRenderDrawColor(this.renderTarget,r,g,b,a);
         if(fill)
-            SDL_RenderFillRect(renderTarget,&rect);
-        SDL_RenderDrawRect(renderTarget,&rect);
+            SDL_RenderFillRect(this.renderTarget,&rect);
+        SDL_RenderDrawRect(this.renderTarget,&rect);
     }
 
     int regionhit(int x, int y, int w, int h){
@@ -84,15 +82,15 @@ class GUIManager{
         //drawRect(x+8,y+8,64,48,actionStates.renderTarget);
         if(state.hotitem == id){
             if(state.activeitem == id){
-                drawRect(x+2,y+2,w,h,100,255,255,255,renderTarget);
+                drawRect(x+2,y+2,w,h,100,255,255,255);
             }else{
-                drawRect(x+2,y+2,w,h,0,255,255,255,renderTarget);
+                drawRect(x+2,y+2,w,h,0,255,255,255);
             }
         }else{
-            drawRect(x+2,y+2,w,h,128,128,128,255,renderTarget);
+            drawRect(x+2,y+2,w,h,128,128,128,255);
         }
 
-        TextureManager.getInstance().renderFont("button_text",text,x,y,renderTarget);
+        TextureManager.getInstance().renderFont("button_text",text,x,y);
         if(state.mousedown == 0 && state.hotitem == id && state.activeitem == id)
             return 1;
         }catch(Exception e){
@@ -101,7 +99,7 @@ class GUIManager{
         return 0;
     }
 
-    string textbox(int id, int x, int y, int w, int h, SDL_Renderer* renderTarget){
+    string textbox(int id, int x, int y, int w, int h){
         if(regionhit(x,y,w,h)){
             state.hotitem = id;
         if(state.activeitem == 0 && state.mousedown){
@@ -118,29 +116,29 @@ class GUIManager{
         }
 
         if(state.kbditem == id)
-            drawRect(x+2,y+2,w,h,100,255,255,255,renderTarget);
+            drawRect(x+2,y+2,w,h,100,255,255,255);
         else
-            drawRect(x+2,y+2,w,h,to!ubyte(128),to!ubyte(128),to!ubyte(128),to!ubyte(255),renderTarget);
+            drawRect(x+2,y+2,w,h,to!ubyte(128),to!ubyte(128),to!ubyte(128),to!ubyte(255));
         string *ps = to!string(id) in state.text;
         
         if (ps){
-            TextureManager.getInstance().renderFont("chat_text",state.text[to!string(id)],x,y,renderTarget);
+            TextureManager.getInstance().renderFont("chat_text",state.text[to!string(id)],x,y);
             return state.text[to!string(id)];
         }
 
             return "none";
     }
 
-    void dialogueBox(int id, int x, int y, int width, int height, string text, SDL_Renderer* renderTarget){
+    void dialogueBox(int id, int x, int y, int width, int height, string text){
         if(regionhit(x,y,width,height)){
             state.hotitem = id;
             if(state.activeitem == 0 && state.mousedown){
                 state.activeitem = id;
             }
         }
-        drawRect(x,y,width,height,0,0,0,255,renderTarget,SDL_BLENDMODE_NONE,false);
-        drawRect(x,y,width,height,60,79,188,45,renderTarget,SDL_BLENDMODE_BLEND,true,50);
-        TextureManager.getInstance().renderFont("chat_text",text,x+10,y+10,renderTarget);
+        drawRect(x,y,width,height,0,0,0,255,SDL_BLENDMODE_NONE,false);
+        drawRect(x,y,width,height,60,79,188,45,SDL_BLENDMODE_BLEND,true,50);
+        TextureManager.getInstance().renderFont("chat_text",text,x+10,y+10);
     }
 
     //GUI Funcs
@@ -157,7 +155,7 @@ class GUIManager{
         
         //ScriptManager.getInstance().loadScript("MainMenuGUI");
         imgui_prepare();
-        GUIManager.getInstance().textbox(100,200,200,500,50,renderTarget);
+        GUIManager.getInstance().textbox(100,200,200,500,50);
         imgui_finish();
         //TextureManager.getInstance().renderFont("Black","Merchant Life",screen_width / 3,screen_height/3,renderTarget);
     }
@@ -171,6 +169,7 @@ class GUIManager{
         GUIManager instance;
         SDL_Window*  window;
         const auto GEN_ID = __LINE__;
+        SDL_Renderer *renderTarget;
 
         enum buttonID{
             NORMAL_BUTTON

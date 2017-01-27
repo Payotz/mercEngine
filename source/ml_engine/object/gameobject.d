@@ -68,16 +68,13 @@ class GameObject{
             return;
         }else{
             if(!isSpriteSheet){
-                TextureManager.getInstance().renderSprite(sprite_name,to!int(position.x - Camera.getInstance().getPositionX()),to!int(position.y - Camera.getInstance().getPositionY()),renderTarget);
+                TextureManager.getInstance().renderSprite(sprite_name,to!int(position.x - Camera.getInstance().getPositionX()),to!int(position.y - Camera.getInstance().getPositionY()));
             }else{
                 TextureManager.getInstance().setAnimated(sprite_name,isAnimated);
-                TextureManager.getInstance().renderSpriteSheet(sprite_name,to!int(position.x - Camera.getInstance().getPositionX()),to!int(position.y - Camera.getInstance().getPositionY()),renderTarget);
+                TextureManager.getInstance().renderSpriteSheet(sprite_name,to!int(position.x - Camera.getInstance().getPositionX()),to!int(position.y - Camera.getInstance().getPositionY()));
             }
         }
     }
-
-
-
 
     protected:
     string[string] detail_list;

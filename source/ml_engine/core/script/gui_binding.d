@@ -19,7 +19,6 @@ void initGuiScript(SDL_Renderer *renderer){
     // Lua functions that interface with game
 extern(C) nothrow int button(lua_State * L ){
     try{
-
         int id = to!int(lua_tonumber(L, 1));
         int xpos = to!int(lua_tonumber(L, 2));
         int ypos = to!int(lua_tonumber(L, 3));
@@ -55,7 +54,7 @@ extern(C) nothrow int GUI_textbox(lua_State*L){
         int ypos = to!int(lua_tonumber(L, 3));
         int width = to!int(lua_tonumber(L, 4));
         int height = to!int(lua_tonumber(L, 5));
-        auto dummy = toStringz(GUIManager.getInstance().textbox(id,xpos,ypos,width,height,renderTarget));
+        auto dummy = toStringz(GUIManager.getInstance().textbox(id,xpos,ypos,width,height));
         if(dummy)
             lua_pushstring(L,dummy);
     }catch(Exception e){
@@ -72,7 +71,7 @@ extern(C) nothrow int GUI_dialogueBox(lua_State*L){
         int width = to!int(lua_tonumber(L, 4));
         int height = to!int(lua_tonumber(L, 5));
         string text = to!string(lua_tostring(L,6));
-        GUIManager.getInstance().dialogueBox(id,xpos,ypos,width,height,text,renderTarget);
+        GUIManager.getInstance().dialogueBox(id,xpos,ypos,width,height,text);
     }catch(Exception e){
     }
     return 0;
@@ -84,7 +83,21 @@ extern(C) nothrow int writeWord(lua_State *L){
         int y = to!int(lua_tonumber(L,2));
         string message = to!string(lua_tostring(L,3));
         string font_name = to!string(lua_tostring(L,4));
-        TextureManager.getInstance().renderFont(font_name,message,x,y,renderTarget);
+        TextureManager.getInstance().renderFont(font_name,message,x,y);
+    }catch(Exception e){
+    }
+    return 0;
+}
+
+extern(C) nothrow int drawRect(lua_State *L){
+    try{
+        int x = to!int(lua_tonumber(L,1));
+        int y = to!int(lua_tonumber(L,2));
+        int w = to!int(lua_tonumber(L,3));
+        int h = to!int(lua_tonumber(L,4));
+        ubyte r = to!ubyte(lua_tonumber(L,5));
+        ubyte g = to!ubyte(lua_tonumber(L,6));
+        ubyte b = to!ubyte(lua_tonumber(L,7));
     }catch(Exception e){
     }
     return 0;

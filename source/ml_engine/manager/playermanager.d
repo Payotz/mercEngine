@@ -72,7 +72,7 @@ class PlayerManager{
 
     void render(SDL_Renderer *renderTarget){
         player_list[current_player].render(renderTarget);
-        TextureManager.getInstance().renderFont("chat_text","Player_1",to!int((player_list[current_player].getPosition().x) - Camera.getInstance().getPositionX()) , to!int((player_list[current_player].getPosition().y -10) - Camera.getInstance().getPositionY()) ,renderTarget);
+        TextureManager.getInstance().renderFont("chat_text","Player_1",to!int((player_list[current_player].getPosition().x) - Camera.getInstance().getPositionX()) , to!int((player_list[current_player].getPosition().y -10) - Camera.getInstance().getPositionY()));
         /*foreach(player; player_list){
             if(player !is null){
                 player.render(renderTarget);
