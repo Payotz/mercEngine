@@ -3,6 +3,7 @@ module ml_engine.core.manager.scriptmanager;
 import derelict.lua.lua;
 import std.stdio;
 import std.conv;
+import std.file;
 
 import ml_engine.core.manager.texturemanager;
 import ml_engine.core.script.gui_binding;
@@ -134,27 +135,42 @@ class ScriptManager{
         lua_register(L,cast(char*)"Script_loadScript",&Script_loadScript);
 
         ///Event Bindings
-        
-
         renderTarget = value;
         initGuiScript(renderTarget);
-        addScript("__SCRIPTFILESTART__","resources/start.lua");
+        addScript("__SCRIPTFILESTART__","rsc/start.lua");
         loadScript("__SCRIPTFILESTART__");
     }
 
     void addScript(string name,string path){
-        writeln("Adding Script to Path : ", "\"", directory ~ path,"\"" );
-        script_list[name] = directory ~ path;
+        if(exists(directory ~ path)){
+            writeln("Adding Script to Path : ", "\"", directory ~ path,"\" ", "assigning name: ", name );
+            script_list[name] = directory ~ path;
+        }else{
+            writeln ("File does not exist : ", directory ~ path);
+        }
     }
 
     void loadScript(string name){
-        int s = luaL_loadfile(L,cast(char*)script_list[name]);
-        if(!s)
-            s = lua_pcall(L,0,LUA_MULTRET,0);
-        if(s){
-            write("Error : ");
-            writeln(lua_tostring(L,-1));
-            lua_pop(L,1);
+        if(name in script_list){
+            int s = luaL_loadfile(L,cast(char*)script_list[name]);
+            if(!s)
+                s = lua_pcall(L,0,LUA_MULTRET,0);
+            else{
+                    if(s == LUA_ERRSYNTAX ){
+                        write("Syntax Error  : ");
+                    }
+                    else if (s == LUA_ERRMEM){
+                        write("Memory Allocation Error : ");
+                    }   
+                    else if (s == LUA_ERRRUN){
+                        write("RunTime Error : ");
+                    }
+                    else if (s == LUA_ERRGCMM){
+                        write("GC Error : ");
+                    }
+                writeln(lua_tostring(L,-1));
+                lua_pop(L,1);
+            }
         }
         //lua_close(L);
     }

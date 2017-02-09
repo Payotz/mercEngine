@@ -5,6 +5,7 @@ import derelict.sdl2.sdl;
 import std.conv;
 
 
+
 extern(C) nothrow int addSprite(lua_State *L){
     try{
         string path = to!string(lua_tostring(L,1));

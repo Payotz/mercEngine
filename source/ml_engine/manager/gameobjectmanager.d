@@ -7,6 +7,7 @@ import ml_engine.core.camera;
 import ml_engine.core.manager.texturemanager;
 import ml_engine.core.manager.guimanager;
 import std.typecons;
+import std.stdio;
 
 import derelict.sdl2.sdl;
 

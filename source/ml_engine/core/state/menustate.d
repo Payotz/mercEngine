@@ -16,13 +16,16 @@ import std.conv;
 
 class MenuState : IState{
 
-    this(string update_script, string render_script){
-        script["render"] = render_script;
+    this(string onEnter_script, string update_script,string handleEvents_script, string render_script,string onExit_script){
+        script["onEnter"] = onEnter_script;
         script["update"] = update_script;
+        script["handleEvents_script"] = handleEvents_script;
+        script["render"] = render_script;
+        script["onExit"] = onExit_script;
     }
 
     void onEnter(){
-
+        ScriptManager.getInstance().loadScript(script["onEnter"]);
     }
 
     void update(){

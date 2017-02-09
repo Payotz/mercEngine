@@ -24,12 +24,12 @@ class StateManager{
         
     }
 
-    void addNewMenuState(string name, string update_script,string render_script){
-        addState(name,new MenuState(update_script,render_script));
+    void addNewMenuState(string name,string onEnter_script, string update_script,string handleEvents_script, string render_script,string onExit_script){
+        addState(name,new MenuState(onEnter_script,update_script,handleEvents_script,render_script,onExit_script));
     }
 
-    void addNewTownState(string name, string update_script, string render_script){
-        addState(name,new TownState(update_script,render_script));
+    void addNewTownState(string name, string onEnter_script, string update_script,string handleEvents_script, string render_script,string onExit_script){
+        addState(name,new TownState(onEnter_script,update_script,handleEvents_script,render_script,onExit_script));
     }
 
     void addState(string name, IState state){

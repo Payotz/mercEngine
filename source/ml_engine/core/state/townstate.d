@@ -19,14 +19,21 @@ import std.conv;
 import std.stdio;
 class TownState : IState{
 
-    this(string update_file,string render_file){
-        script["update"] = update_file;
-        script["render"] = render_file;
+    this(string onEnter_script, string update_script,string handleEvents_script, string render_script,string onExit_script){
+        script["onEnter"] = onEnter_script;
+        script["update"] = update_script;
+        script["handleEvents_script"] = handleEvents_script;
+        script["render"] = render_script;
+        script["onExit"] = onExit_script;
         EventManager.getInstance().init();
         setEventHandler("Sample");
     }
 
 	void onEnter(){
+        if("onEnter" in script)
+            ScriptManager.getInstance().loadScript(script["onEnter"]);
+        else
+            writeln("On Enter script not existing");
         //ScriptManager.getInstance().loadScript("TownMain");
         RoomManager.getInstance().addRoom("Sample","resources/tilemap/town.json","Town");
         //RoomManager.getInstance().setRoomFunction("Sample",&basicRoom_Process);
