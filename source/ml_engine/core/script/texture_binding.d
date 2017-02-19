@@ -3,8 +3,7 @@ import ml_engine.core.manager.texturemanager;
 import derelict.lua.lua;
 import derelict.sdl2.sdl;
 import std.conv;
-
-
+import std.stdio;
 
 extern(C) nothrow int addSprite(lua_State *L){
     try{
@@ -47,11 +46,11 @@ extern(C) nothrow int addFont(lua_State *L){
     return 0;
 }
 
-extern(C) nothrow int checkSpriteInList(lua_State *L){
+extern(C) nothrow int Texture_checkSpriteInList(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
-        auto data = TextureManager.getInstance().checkSpriteInList(name);
-        lua_pushinteger(L,data);
+        int data = TextureManager.getInstance().checkSpriteInList(name);
+        lua_pushnumber(L,data);
     }catch(Exception e){
     }
     return 1;

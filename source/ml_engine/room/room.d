@@ -47,7 +47,7 @@ class Room{
     }
     
     void render(SDL_Renderer *renderTarget){
-        TileMapManager.getInstance().drawMap(room_name,spriteAtlas,renderTarget);
+        TileMapManager.getInstance().drawMap(room_name,spriteAtlas,3,3);
     }
 
     private:

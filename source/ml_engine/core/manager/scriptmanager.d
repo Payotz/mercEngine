@@ -15,6 +15,7 @@ import ml_engine.core.script.gameobject_binding;
 import ml_engine.core.script.map_binding;
 import ml_engine.core.script.player_binding;
 import ml_engine.core.script.texture_binding;
+import ml_engine.core.script.event_binding;
 
 import ml_engine.game;
 import derelict.sdl2.sdl;
@@ -111,7 +112,7 @@ class ScriptManager{
         lua_register(L,cast(char*)"Texture_addSprite",&addSprite);
         lua_register(L,cast(char*)"Texture_addSpriteSheet",&addSpriteSheet);
         lua_register(L,cast(char*)"Texture_addFont",&addFont);
-        lua_register(L,cast(char*)"Texture_checkSpriteInList",&checkSpriteInList);
+        lua_register(L,cast(char*)"Texture_checkSpriteInList",&Texture_checkSpriteInList);
         lua_register(L,cast(char*)"Texture_getSprite",&getSprite);
         lua_register(L,cast(char*)"Texture_renderSprite",&renderSprite);
         lua_register(L,cast(char*)"Texture_renderSpriteSheet",&renderSpriteSheet);
@@ -126,8 +127,9 @@ class ScriptManager{
         lua_register(L,cast(char*)"Map_loadMap",&loadMap);
         lua_register(L,cast(char*)"Map_getMapHeight",&getMapHeight);
         lua_register(L,cast(char*)"Map_getMapWidth",&getMapWidth);
-        lua_register(L,cast(char*)"Map_drawMap",&drawMap);
+        lua_register(L,cast(char*)"Map_drawMap",&Map_drawMap);
         lua_register(L,cast(char*)"Map_setDirectory",&Map_setDirectory);
+        lua_register(L,cast(char*)"Map_pointInWarpObject",&Map_pointInWarpObject);
 
         ///Script Bindings
         lua_register(L,cast(char*)"Script_addScript",&addScriptToList);
@@ -135,6 +137,8 @@ class ScriptManager{
         lua_register(L,cast(char*)"Script_loadScript",&Script_loadScript);
 
         ///Event Bindings
+        lua_register(L,cast(char*)"Event_getKeyState",&getScanCode);
+        lua_register(L,cast(char*)"Event_checkKeyUp",&checkKeyUp);
         renderTarget = value;
         initGuiScript(renderTarget);
         addScript("__SCRIPTFILESTART__","rsc/start.lua");
@@ -209,6 +213,8 @@ extern(C) nothrow int addScriptToList(lua_State *L){
     return 0;
 }
 
+
+
 extern(C) nothrow int Script_loadScript(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
@@ -230,7 +236,6 @@ extern(C) nothrow int Script_setDirectory(lua_State *L){
 extern(C) nothrow int Delay(lua_State *L){
     try{
         int ms = to!int(lua_tonumber(L,1));
-        lua_settop(L,0);
         SDL_Delay(ms);
     }catch(Exception e){
 
@@ -240,7 +245,6 @@ extern(C) nothrow int Delay(lua_State *L){
 
 extern(C) nothrow int getWindowWidth(lua_State * L){
     try{
-        lua_settop(L,0);
         lua_pushnumber(L,Game.getInstance().getWidth());
     }catch(Exception e){
     }
@@ -249,7 +253,6 @@ extern(C) nothrow int getWindowWidth(lua_State * L){
 
 extern(C) nothrow int getWindowHeight(lua_State * L){
     try{
-        lua_settop(L,0);
         lua_pushnumber(L,Game.getInstance().getHeight());
     }catch(Exception e){
     }

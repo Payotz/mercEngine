@@ -22,7 +22,7 @@ class TownState : IState{
     this(string onEnter_script, string update_script,string handleEvents_script, string render_script,string onExit_script){
         script["onEnter"] = onEnter_script;
         script["update"] = update_script;
-        script["handleEvents_script"] = handleEvents_script;
+        script["handleEvents"] = handleEvents_script;
         script["render"] = render_script;
         script["onExit"] = onExit_script;
         EventManager.getInstance().init();
@@ -34,25 +34,23 @@ class TownState : IState{
             ScriptManager.getInstance().loadScript(script["onEnter"]);
         else
             writeln("On Enter script not existing");
-        //ScriptManager.getInstance().loadScript("TownMain");
-        RoomManager.getInstance().addRoom("Sample","resources/tilemap/town.json","Town");
-        //RoomManager.getInstance().setRoomFunction("Sample",&basicRoom_Process);
-        //RoomManager.getInstance().setRoomFunction("Sample2",&basicRoom_Process);
-        //RoomManager.getInstance().addRoom("Sample2","Basic_2","resources/tilemap/sample2.json","Ground");
-        ///PlayerManager.getInstance().setPosition("Player_1",200,200);
-        ///Camera.getInstance().setFocusOnPlayer("Player_1");   
-        ///GameObjectManager.getInstance().addGameObject("Random", new NPC());
-        ///GameObjectManager.getInstance().setSprite("Random", "Hero");
-        ///GameObjectManager.getInstance().setPosition("Random", SDL_Point(3,3));
     }
 
 	void update(){
-        Camera.getInstance().update();  
-        GameObjectManager.getInstance().checkCollision("Player_1");
+        //Camera.getInstance().update();  
+        //GameObjectManager.getInstance().checkCollision("Player_1");
+        if("update" in script)
+            ScriptManager.getInstance().loadScript(script["update"]);
+        else
+            writeln("Update Script does not exist");
     }
 
 	void handleEvents(ref bool gameLoop){     
-        EventManager.getInstance().handleEvent(eventhandler);
+        //EventManager.getInstance().handleEvent(eventhandler);
+        if("handleEvents" in script)
+            ScriptManager.getInstance().loadScript(script["handleEvents"]);
+        else
+            writeln("Handle Events Script does not exist");
     }
 
     void setEventHandler(string name){
@@ -68,9 +66,13 @@ class TownState : IState{
     }
 
 	void render(SDL_Renderer *renderTarget){
-        RoomManager.getInstance().renderRoom(renderTarget);
-        PlayerManager.getInstance().render(renderTarget);
-        GameObjectManager.getInstance().render(renderTarget);
+        //RoomManager.getInstance().renderRoom(renderTarget);
+        //PlayerManager.getInstance().render(renderTarget);
+        if("render" in script)
+            ScriptManager.getInstance().loadScript(script["render"]);
+        else
+            writeln("Render Script does not exist");
+        //GameObjectManager.getInstance().render(renderTarget);
     }
 
 	void onExit(){

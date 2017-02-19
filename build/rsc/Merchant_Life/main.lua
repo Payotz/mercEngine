@@ -3,6 +3,12 @@ Texture_setDirectory("rsc/Merchant_Life");
 Script_setDirectory("rsc/Merchant_Life");
 Map_setDirectory("rsc/Merchant_Life");
 
+playerManager = loadfile(assert("rsc/Merchant_Life/script/manager/playermanager.lua"))()
+    if playerManager == nil then
+        print(loadfile("rsc/Merchant_Life/script/manager/playermanager.lua"))
+    end
+Camera = loadfile(assert("rsc/Merchant_Life/script/system/core/camera.lua"))()
+Camera:createCamera()
 Script_addScript("TownMainOnEnter","/script/system/town/onEnter.lua");
 Script_addScript("TownMainUpdate","/script/system/town/update.lua");
 Script_addScript("TownMainEvents","/script/system/town/handleEvents.lua");

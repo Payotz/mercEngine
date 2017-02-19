@@ -5,6 +5,8 @@ import ml_engine.core.graphic.font;
 import ml_engine.core.graphic.sprite;
 import ml_engine.core.graphic.spritesheet;
 
+import std.stdio;
+
 enum SPRITE_TYPE{
     NONE = 0,
     SPRITE = 1,
@@ -22,6 +24,7 @@ class TextureManager{
                 instantiated_ = true;
             }
         }
+
         return instance_;
     }
 
@@ -43,16 +46,23 @@ class TextureManager{
 
     int checkSpriteInList(string name){
         if((name in sprite_list) !is null){
-            return SPRITE_TYPE.SPRITE;
+            return 1;
         }if((name in spriteSheet_list) !is null){
-            return SPRITE_TYPE.SPRITE_SHEET;
+            return 2;
         }else{
-            return SPRITE_TYPE.NONE;
+            return 0;
         }
     }
 
     SDL_Texture* getSprite(string name){
-        return sprite_list[name].getSprite();
+        if(name in sprite_list){
+            writeln("Sprite Found :", name);
+            return sprite_list[name].getSprite();
+        }
+        else{ 
+            writeln("Sprite not found :", name);
+            return sprite_list[name].getSprite();
+        }
     }
 
     void renderSprite(string name,int posX,int posY){
