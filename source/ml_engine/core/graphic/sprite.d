@@ -10,29 +10,28 @@ import std.stdio;
 class Sprite{
 
 	public:
-		this(string _path, SDL_Renderer* _renderTarget){
-			texture = new Texture();
-			loadSprite(_path, _renderTarget);
+		this(){
+			
 		}
 
 		void loadSprite(string path){
 			GLuint VBO;
-			
+			texture = new Texture(path);
 			glGenVertexArrays(1, &ID);
 			glGenBuffers(1,&VBO);
 			glBindVertexArray(ID);
 				glBindBuffer(GL_ARRAY_BUFFER,VBO);
-				glBufferData(GL_ARRAY_BUFFER,vertices.sizeof,vertices,GL_STATIC_DRAW);
+				glBufferData(GL_ARRAY_BUFFER,vertices.sizeof,cast(void*)vertices,GL_STATIC_DRAW);
 				glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * GL_FLOAT.sizeof, cast(GLuint*)0);
 				glBindBuffer(GL_ARRAY_BUFFER, 0);
-				glEnableVertexAttribPointer(0);
+				glEnableVertexAttribArray(0);
 			glBindVertexArray(0);
 
 			texture.loadTexture(path);
 
 		}
 
-		void render(int posX, int posY,SDL_Renderer* renderTarget){
+		void render(int posX, int posY){
 			texture.Use();
 			glBindVertexArray(ID);
 			glDrawArrays(GL_TRIANGLES,0,6);
@@ -41,7 +40,7 @@ class Sprite{
 
 	private:
 		GLuint ID;
-		auto vertices[] = [
+		GLfloat[] vertices = [
 			0.0f, 1.0f, 0.0f, 1.0f,
 			1.0f, 0.0f, 1.0f, 0.0f,
 			0.0f, 0.0f, 0.0f, 0.0f, 

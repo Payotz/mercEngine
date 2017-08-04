@@ -92,7 +92,7 @@ class TileMapManager{
     }
 
     void loadMap(string map_Name, string dataPath) {
-        writeln("Loading Map :", map_Name);
+        /*writeln("Loading Map :", map_Name);
         auto data = MapData.load(directory ~ dataPath);
         // the layers determine which tiles go where
         auto groundLayer = data.getLayer("ground");
@@ -111,6 +111,7 @@ class TileMapManager{
         .array;                          // create an array of all the rows
         
         map_list[map_Name] = TileMap(OrthoMap!Tile(tiles, data.tileWidth, data.tileHeight), MapData.load(directory ~ dataPath));
+    */
     }
 
     int getMapHeight(string roomName){
@@ -144,7 +145,7 @@ class TileMapManager{
     }
 
     void drawMap(string name,string spriteAtlas,int camera_x,int camera_y ) {
-        auto tileAtlas = TextureManager.getInstance().getSprite(spriteAtlas);
+        /*auto tileAtlas = TextureManager.getInstance().getSprite(spriteAtlas);
         if(name !in map_list){
             writeln("Map not found : ", name);
             return;
@@ -158,7 +159,7 @@ class TileMapManager{
             drawBitmap(tileAtlas,topLeft,tile.terrainRect,camera_x,camera_y);
             drawBitmap(tileAtlas,topLeft,tile.featureRect,camera_x,camera_y);
             drawBitmap(tileAtlas,topLeft,tile.sideFeatureRect,camera_x,camera_y);
-        }
+        }*/
     }
 
     void drawBitmap(SDL_Texture* tileAtlas,SDL_Point pos, SDL_Rect rect,int camera_x,int camera_y){

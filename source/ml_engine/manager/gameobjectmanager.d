@@ -69,7 +69,7 @@ class GameObjectManager{
     }
 
     void changeSpriteLayer(string name,int value){
-        TextureManager.getInstance().changeSpriteLayer(gameobject_list[name].getSpriteName(),value);
+        //TextureManager.getInstance().changeSpriteLayer(gameobject_list[name].getSpriteName(),value);
     }
 
     void cleanList(){

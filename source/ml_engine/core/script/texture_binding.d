@@ -29,7 +29,7 @@ extern(C) nothrow int setSpriteAlpha(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
         ubyte alpha = to!ubyte(lua_tonumber(L,2));
-        TextureManager.getInstance().setSpriteAlpha(name,alpha);
+        //TextureManager.getInstance().setSpriteAlpha(name,alpha);
     }catch(Exception e){
     }
     return 0;
@@ -59,8 +59,8 @@ extern(C) nothrow int Texture_checkSpriteInList(lua_State *L){
 extern(C) nothrow int getSprite(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
-        auto data = TextureManager.getInstance().getSprite(name);
-        lua_pushlightuserdata(L,data);
+        //auto data = TextureManager.getInstance().getSprite(name);
+        //lua_pushlightuserdata(L,data);
     }catch(Exception e){
     }
     return 1;
@@ -104,7 +104,7 @@ extern(C) nothrow int changeSpriteLayer(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
         int layerNumber = to!int(lua_tonumber(L,2));
-        TextureManager.getInstance().changeSpriteLayer(name,layerNumber);
+        //TextureManager.getInstance().changeSpriteLayer(name,layerNumber);
     }catch(Exception e){
     }
     return 0;
@@ -114,7 +114,7 @@ extern(C) nothrow int Texture_setSpriteAlpha(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
         ubyte value = to!ubyte (lua_tonumber(L,2));
-        TextureManager.getInstance().setSpriteAlpha(name,value);
+        //TextureManager.getInstance().setSpriteAlpha(name,value);
     }catch(Exception e){
     }
     return 0;
@@ -124,7 +124,7 @@ extern(C) nothrow int setAnimated(lua_State *L){
     try{
         string name = to!string(lua_tostring(L,1));
         bool value = to!bool(lua_toboolean(L,2));
-        TextureManager.getInstance().setAnimated(name,value);
+        //TextureManager.getInstance().setAnimated(name,value);
     }catch(Exception e){
     }
     return 0;

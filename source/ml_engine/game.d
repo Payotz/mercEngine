@@ -7,6 +7,7 @@ import derelict.sdl2.ttf;
 import derelict.sdl2.net;
 import derelict.lua.lua;
 
+/*
 import ml_engine.core.manager.texturemanager;
 import ml_engine.core.manager.audiomanager;
 import ml_engine.core.manager.statemanager;
@@ -17,6 +18,8 @@ import ml_engine.core.manager.tilemapmanager;
 import ml_engine.manager.playermanager;
 import ml_engine.manager.gameobjectmanager;
 import ml_engine.core.camera;
+
+*/
 
 import std.stdio;
 
@@ -64,17 +67,22 @@ class Game{
         auto context = SDL_GL_CreateContext(window);
         DerelictGL3.reload();
 
-        StateManager.getInstance().init();
+        //StateManager.getInstance().init();
 
 
     }
 
     void update(){
-        StateManager.getInstance().update();
+        //StateManager.getInstance().update();
     }
 
     void handleEvents(){
-        StateManager.getInstance().handleEvents(running);
+        //StateManager.getInstance().handleEvents(running);
+        SDL_Event event;
+        SDL_PollEvent(&event);
+        if(event.type == SDL_QUIT){
+            this.running = false;
+        }
     }
 
     SDL_Window* getMainWindow(){
@@ -84,7 +92,7 @@ class Game{
     void render(){
         glClearColor(0,0,0,0);
         glClear(GL_COLOR_BUFFER_BIT);
-        StateManager.getInstance().render(renderTarget);
+        //StateManager.getInstance().render(renderTarget);
         SDL_GL_SwapWindow(window);
     }
 
@@ -110,17 +118,16 @@ class Game{
     }
     
     private:
-    static Game instance;
-    bool running = true;
-    SDL_Window *window;
-    SDL_Renderer *renderTarget;
+        static Game instance;
+        bool running = true;
+        SDL_Window *window;
+        SDL_Renderer *renderTarget;
 
-    int screen_width = 800;
-    int screen_height = 600;
+        int screen_width = 800;
+        int screen_height = 600;
 
-    __gshared Game instance_;
-    static bool instantiated_;
+        __gshared Game instance_;
+        static bool instantiated_;
 
-    this() {
-    }
+    this(){}
 }

@@ -1,7 +1,6 @@
 A WIP 2D engine made in Dlang using SDL.
 OpenGL Renderer in process.
-
-Note: Project cannot be built at this time.
+Please refer to the master branch to get a "sorta-kinda" working branch.
 
 ### How do I get set up? ###
 

@@ -7,12 +7,8 @@ import std.stdio;
 
 class SpriteSheet : Sprite{
 	public:
-		this(string _path,int _FPS, SDL_Renderer* _renderTarget){
-			loadSprite(_path, _renderTarget);
-			FPS = _FPS;
-		}
 
-		void render(int posX,int posY,SDL_Renderer* renderTarget){
+		override void render(int posX,int posY){
 			return;
 		}
 
@@ -20,7 +16,7 @@ class SpriteSheet : Sprite{
 			animated = isAnimated;
 		}
 
-		void changeSprite(int layer_number){
+		/*void changeSprite(int layer_number){
 			switch(layer_number){
 				case 1:
 					playerRect.y = 0;
@@ -36,12 +32,12 @@ class SpriteSheet : Sprite{
 					break;
 				default : break;
 			}
-		}
+		}*/
 		private:
-		SDL_Texture* sprite_texture;
-		int FPS = 0;
-		int frameTime = 0;
-		int frameWidth, frameHeight;
-		int textureWidth, textureHeight;
-		bool animated = false;
+			SDL_Texture* sprite_texture;
+			int FPS = 0;
+			int frameTime = 0;
+			int frameWidth, frameHeight;
+			int textureWidth, textureHeight;
+			bool animated = false;
 }

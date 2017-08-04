@@ -13,7 +13,7 @@ class Shader{
             auto range = file.byLine();
             string content = "";
             foreach(line; range){
-                content ~= line + "\n";
+                content ~= line ~ "\n";
             }
             file.close();
 
@@ -45,8 +45,8 @@ class Shader{
             checkShaderStatus(fragmentShader);
 
             this.ID = glCreateProgram();
-            glAttachShader(program,vertexShader);
-            glAttachShader(program,fragmentShader);
+            glAttachShader(ID,vertexShader);
+            glAttachShader(ID,fragmentShader);
             glLinkProgram(ID);
             checkProgramStatus(ID);
 
@@ -66,20 +66,20 @@ class Shader{
 
 void checkShaderStatus(GLuint shader){
     int success;
-    char infoLog[1024];
+    char* infoLog[1024];
     glGetShaderiv(shader,GL_COMPILE_STATUS,&success);
     if(!success){
-        glGetShaderInfoLog(shader,1024,null,infoLog);
+        glGetShaderInfoLog(shader,1024,cast(int*)null,cast(char*)infoLog);
         writeln(infoLog);
     }
 }
 
 void checkProgramStatus(GLuint program){
     int success;
-    char infoLog[1024];
+    char* infoLog[1024];
     glGetProgramiv(program,GL_LINK_STATUS,&success);
     if(!success){
-        glGetProgramInfoLog(program,1024,null,infoLog);
+        glGetProgramInfoLog(program,1024,cast(int*)null,cast(char*)infoLog);
         writeln(infoLog);
     }
 }

@@ -2,7 +2,7 @@ module ml_engine.core.graphic.texture;
 
 import derelict.opengl;
 import derelict.sdl2.mixer;
-
+import derelict.sdl2.image;
 import std.string;
 
 class Texture{
