@@ -1,4 +1,7 @@
 A WIP 2D engine made in Dlang using SDL.
+OpenGL Renderer in process.
+
+Note: Project cannot be built at this time.
 
 ### How do I get set up? ###
 
@@ -25,7 +28,6 @@ Put the Runtime Binaries inside /build/ and just run dub at the root of the dire
 Actual Game Project files are in /build/resources. 
 
 start.lua is modified to load the 'main.lua' files inside a respective Game Folder, hence loading Game.
-
 
 
 ### DISCLAIMER ###

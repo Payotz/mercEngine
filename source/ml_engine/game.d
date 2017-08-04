@@ -1,5 +1,6 @@
 module ml_engine.game;
 import derelict.sdl2.sdl;
+import derelict.opengl;
 import derelict.sdl2.image;
 import derelict.sdl2.mixer;
 import derelict.sdl2.ttf;
@@ -46,6 +47,8 @@ class Game{
         DerelictSDL2Net.load();
         DerelictLua.load();
 
+        DerelictGL3.load();
+
         if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
 			writeln(SDL_GetError());
 		if(IMG_Init(IMG_INIT_PNG) < 0 )
@@ -58,12 +61,11 @@ class Game{
 			writeln(SDLNet_GetError());
         
         window = SDL_CreateWindow("Hello World",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,screen_width,screen_height,SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL) ;
-        renderTarget = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-        TextureManager.getInstance().init(renderTarget);
-        TileMapManager.getInstance().init(renderTarget);
+        auto context = SDL_GL_CreateContext(window);
+        DerelictGL3.reload();
+
         StateManager.getInstance().init();
-        GUIManager.getInstance().init(screen_width,screen_height,renderTarget);
-        ScriptManager.getInstance().init(renderTarget);
+
 
     }
 
@@ -80,14 +82,10 @@ class Game{
     }
 
     void render(){
-        SDL_SetRenderDrawColor(renderTarget,255,255,255,255);
-        SDL_RenderClear(renderTarget);
+        glClearColor(0,0,0,0);
+        glClear(GL_COLOR_BUFFER_BIT);
         StateManager.getInstance().render(renderTarget);
-        SDL_RenderPresent(renderTarget);
-    }
-
-    SDL_Renderer* getRenderer(){
-        return renderTarget;
+        SDL_GL_SwapWindow(window);
     }
 
     int getWidth(){
@@ -104,7 +102,6 @@ class Game{
 
     void exit(){
         SDL_DestroyWindow(window);
-        SDL_DestroyRenderer(renderTarget);
         SDL_Quit();
     }
 
