@@ -36,3 +36,14 @@ As of now, the scripting language is incomplete.
 You can check the bindings in /source/ml_engine/core/script
 
 This project is still highly unstable
+
+
+### TODO ###
+
+Transfer all game logic to lua script files
+
+Replace the SDL_Renderer with the OpenGL Renderer
+
+### INFO ###
+
+Branch opengl_render is open. The OpenGL process is there.

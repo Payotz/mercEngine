@@ -30,8 +30,8 @@ function Camera:setFreeRoam(value)
 end
 
 function Camera:getPositionX()
-    print("Camera")
-    print(self.offset_x);
+    --print("Camera")
+    --print(self.offset_x);
     return self.offset_x;
 end
 
@@ -40,10 +40,10 @@ function Camera:getPositionY()
 end
 
 function Camera:update()
-    print("Updating Camera")
+    --print("Updating Camera")
     --print(getWindowsHeight());
     self.offset_x = playerManager:getPositionX("Player_1") - 800 / 2;
-    self.offset_y = playerManager:getPositionY("Player_1") --- 600 / 2;
+    self.offset_y = playerManager:getPositionY("Player_1") - 600 / 2;
 
     if self.offset_x < 0 then
         self.offset_x = 0;

@@ -7,6 +7,11 @@ playerManager = loadfile(assert("rsc/Merchant_Life/script/manager/playermanager.
     if playerManager == nil then
         print(loadfile("rsc/Merchant_Life/script/manager/playermanager.lua"))
     end
+roomManager = loadfile(assert("rsc/Merchant_Life/script/manager/roommanager.lua")) ()
+    if roomManager == nil then
+        print(loadfile("rsc/Merchant_life/script/manager/roommanager.lua"))
+    end
+
 Camera = loadfile(assert("rsc/Merchant_Life/script/system/core/camera.lua"))()
 Camera:createCamera()
 Script_addScript("TownMainOnEnter","/script/system/town/onEnter.lua");

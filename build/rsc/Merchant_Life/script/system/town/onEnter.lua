@@ -10,6 +10,7 @@ Camera:setFocusOnPlayer("Player_1");
 
 --Object_addObject("NPC");
 --Object_addObject("NPC_2");
+--roomManager:addRoom("Sample","tilemap/town.json","Town")
 Map_loadMap("Sample","/tilemap/town.json")
 --Room_addRoom("Sample","/tilemap/town.json","Town");
 --Player_setPlayerPosition("Player_1",573,578);

@@ -9,5 +9,4 @@ void main() {
 		Game.getInstance().render();
 	}
 	Game.getInstance().exit();
-
 }

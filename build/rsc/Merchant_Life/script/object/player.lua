@@ -9,7 +9,6 @@ function Player:create(name,spriteName,x,y)
     self.isSpriteSheet = false 
     self.isAnimated = false 
     print("Creating Player")
-    return this
 end
 
 function Player:move(x,y)
